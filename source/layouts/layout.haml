@@ -1,0 +1,25 @@
+<!doctype html>
+%html
+  %head
+    %meta{charset: "utf-8"}
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    %meta{content:"IE=edge,chrome=1", "http-equiv"=>"X-UA-Compatible"}
+    %meta{name: "viewport", content: "initial-scale=1, maximum-scale=1"}
+    
+    <!-- Use title if it's in the page YAML frontmatter -->
+    %title= data.page.title || "The Middleman"
+
+    = stylesheet_link_tag "normalize", "all", "header", "principal" 
+    = javascript_include_tag  "all"
+  
+  %body{class: page_classes}
+    %header
+      .title Paterson & Cooke
+      .subtitle Basic Tool
+
+
+    .button_area
+      %button.buttton_principal Accion 1
+      %button.buttton_principal Accion 2
+      %button.buttton_principal Accion 3
+      %button.buttton_principal Accion 4

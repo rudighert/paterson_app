@@ -1,0 +1,12 @@
+.button_area{
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  .buttton_principal{
+    width: 40%;
+    margin: 10px 15px;
+    padding: 20px 0;
+  }
+}

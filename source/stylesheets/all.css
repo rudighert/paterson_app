@@ -1,0 +1,18 @@
+@charset "utf-8";
+@import 'header';
+
+body {
+  background: white;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.wrapper{
+  background: url('http://www.8pic.ir/images/00593862008515728068.jpg') center center no-repeat;
+  background-size: cover;
+  min-height: 1000px;
+  position:  relative;
+}
+
+
