@@ -4,11 +4,22 @@
   box-sizing: border-box;
   text-align: center;
   width: 100%;
+  font-size: 0;
   .buttton_principal{
-    width: 40%;
-    margin: 10px 15px;
-    padding: 20px 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     border-radius:none;
-    background-color: gray;
+    background-color: #ecf0f1;
+    font-size: 16px;
+    padding: 20px 0;
+  }
+  table{
+    width: 100%;
+    td{
+      text-align: center;
+      width: 50%;
+      padding: 10px 15px;
+    }
   }
 }

@@ -13,13 +13,30 @@
     = javascript_include_tag  "all"
   
   %body{class: page_classes}
+    .show_actions
+      .bottom_nav
+        %ul
+          %li{data: {action: "back"}} Back
+          %li{data: {action: "back"}} Discaimer
+          %li{data: {action: "back"}} Help
+          %li{data: {action: "back"}} Contact Us
+      .insert_action
+        Hola
     %header
-      .title Paterson & Cooke
-      .subtitle Basic Tool
+      =image_tag 'logo.png', width: 300
+      .subtitle_nav Basic Tool
 
 
     .button_area
-      %button.buttton_principal Accion 1
-      %button.buttton_principal Accion 2
-      %button.buttton_principal Accion 3
-      %button.buttton_principal Accion 4
+      %table
+        %tr
+          %td
+            %button.buttton_principal{data: {path: asset_url('views/mass_balance'), title: "Mass Balance & Density"}} Accion 1
+          %td
+            %button.buttton_principal Accion 1
+        %tr
+          %td
+            %button.buttton_principal Accion 1
+          %td
+            %button.buttton_principal Accion 1
+      
