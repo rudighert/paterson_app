@@ -9,7 +9,7 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     %title= data.page.title || "The Middleman"
 
-    = stylesheet_link_tag "normalize", "all", "header", "principal" 
+    = stylesheet_link_tag "normalize", "all", "header", "principal"
     = javascript_include_tag  "all"
   
   %body{class: page_classes}
@@ -31,12 +31,16 @@
       %table
         %tr
           %td
-            %button.buttton_principal{data: {path: asset_url('views/mass_balance'), title: "Mass Balance & Density"}} Accion 1
+            %button.buttton_principal{data: {path: asset_url('views/mass_balance'), title: "Mass Balance & Density"}} 
+              Mass Balance
           %td
-            %button.buttton_principal Accion 1
+            %button.buttton_principal{data: {path: asset_url('views/water_pipe'), title: "Water Pipe Friction Losss"}} 
+              Water Pipe Friction Loss
         %tr
           %td
-            %button.buttton_principal Accion 1
+            %button.buttton_principal{data: {path: asset_url('views/yield_stress'), title: "Yield Stress Estimate"}} 
+              Yield Stress Estimate
           %td
-            %button.buttton_principal Accion 1
+            %button.buttton_principal{data: {path: asset_url('views/sieve_mesh'), title: "Sieves Mesh Sizes"}} 
+              Sieve Mesh Sizes (table)
       

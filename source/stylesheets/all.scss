@@ -1,5 +1,4 @@
 @charset "utf-8";
-@import 'header';
 @import 'mixin';
 html, body {
     margin: 0;
@@ -14,6 +13,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-size: cover;
 }
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
+h2{
+  font-size: 18px;
+  color: gray;
+  font-weight: bold;
+}
+.left{text-align: left;}
+.right{text-align: right;}
 .wrapper{
   background: url('http://www.8pic.ir/images/00593862008515728068.jpg') center center no-repeat;
   background-size: cover;
@@ -35,16 +45,22 @@ body {
     @include transition(bottom, 0.3s); 
   }
   .insert_action{
-    margin-top: 90px;
+    margin-top: 68px;
+    padding: 0 10px;
   }
   .bottom_nav{
     background-color: #2c3e50;
     width: 100%;
     bottom: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
+    display: none;
     box-shadow: 0 -1px 3px black;
     font-size: 0;
+    &.active{
+      display: block;
+    }
+    
     ul{
       width:      100%;
       margin: 0;
@@ -64,6 +80,55 @@ body {
       }
     }
 
+  }
+}
+
+.area_value{
+  $padding_left: 100px;
+  text-align: left;
+  width: 100%;
+  padding-right: $padding_left;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 35px;
+  margin: 20px 0;
+  .info_left{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $padding_left;
+    height: 100%;
+    text-align: right;
+  }
+  .item{
+    color: gray;
+    font-weight: light;
+    text-transform: uppercase;
+  }
+  .scroll_div{
+    height: 2px;
+    background-color: blue;
+  }
+  .value_item{
+    width: 80%;
+    border: 1px solid gray;
+  }
+  .unit{
+    color: gray;
+    font-size: 10px;
+    font-weight: lighter;
+    &:after{content:']';}
+    &:before{content:'[';}
+  }
+}
+
+.resuslts{
+  width: 100%;
+  font-size: 14px;
+  td{width: 50%; height: 70px;}
+  .result{
+    font-size: 20px;
+    font-weight: bold;
   }
 }
 

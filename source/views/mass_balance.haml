@@ -1,1 +1,41 @@
-Esto es mass
+%h2.left
+	Select Values
+
+.area_value
+	.item Solids Tonnage:
+	%input{type:"range", name:"slider-1", id: "slider-1", value: "100000", min:"0", max:"500000"}
+	.info_left
+		%input.value_1.value_item{value: '100000'} 
+		.unit Tonnes / day
+
+
+.area_value
+	.item Conc. of Solids:
+	%input{type:"range", name:"slider-2", id: "slider-2", value: "55", min:"1", max:"85"}
+	.info_left
+		%input.value_2.value_item{value: '55'} 
+		.unit %
+
+
+.area_value
+	.item Solids Spec Weight:
+	%input{type:"range", name:"slider-3", id: "slider-3", value: "5.5", min:"0.5", max:"8.5"}
+	.info_left
+		%input.value_3.value_item{value: '5.5'} 
+
+%table.resuslts
+	%tr
+		%td
+			Slurry Flow Rate:
+			.result.slurry_rate 4242.42
+		%td
+			Water Flow Rate
+			.result.water_rate 3409.09
+	%tr
+		%td
+			Slurry Density
+			.result.density 2.63
+		%td
+			Volum. Concentration
+			.result.vol_concent -24.93
+
