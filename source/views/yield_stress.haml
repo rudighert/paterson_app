@@ -1,1 +1,31 @@
-Yield Stress
+%h2.left
+	Select Values
+
+.area_value
+	.item Cylinder Height:
+	%input{type:"range", name:"slider-1", id: "slider-1", value: "100000", min:"0", max:"500000"}
+	.info_left
+		%input.value_1.value_item{value: '100000'} 
+		.unit mm
+
+
+.area_value
+	.item Measured Slump Height
+	%input{type:"range", name:"slider-2", id: "slider-2", value: "55", min:"1", max:"85"}
+	.info_left
+		%input.value_2.value_item{value: '55'} 
+		.unit mm
+
+
+.area_value
+	.item Slurry Density
+	%input{type:"range", name:"slider-3", id: "slider-3", value: "5.5", min:"0.5", max:"8.5"}
+	.info_left
+		%input.value_3.value_item{value: '5.5'} 
+		.unit Kg/m3
+
+%table.resuslts
+	%tr
+		%td
+			Yield Stress of the Slurry
+			.result.yield_stress 4242.42

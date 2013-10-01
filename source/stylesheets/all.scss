@@ -132,3 +132,26 @@ h2{
   }
 }
 
+.sieves_mesh{
+  width: 100%;
+  border: 1px solid #34495e;
+  thead{
+    font-size: 12px;
+    background-color: #34495e;
+    color: white;
+  }
+  .one,.two{
+    width: 30%;
+  }
+  .three{
+    width: 40%;
+  }
+  tbody{
+    tr{
+      &:nth-child(even){
+        background-color: #ecf0f1;
+      }
+    }
+  }
+}
+
