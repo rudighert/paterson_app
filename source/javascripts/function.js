@@ -54,19 +54,19 @@ function empty_app(){
 function set_result_mass_balance(){
 	var solid_tonnage  = parseInt($('.value_1').val())
 	var concent_solid  = parseInt($('.value_2').val())
-	var specific_weight= parseInt($('.value_3').val())
+	var specific_weight= parseFloat($('.value_3').val())
 
 	var form_1 = (solid_tonnage/24) * ( ( (100/concent_solid) + (1/specific_weight) )-1)
-	$('.result.slurry_rate').html(form_1.toFixed(2))
+	$('.result.slurry_rate').html(parseInt(form_1))
 
 	var form_2 = (solid_tonnage/24) * ( ( 1-(concent_solid/100) )/(concent_solid/100) )
-	$('.result.water_rate').html(form_2.toFixed(2))
+	$('.result.water_rate').html(parseInt(form_2))
 
-	var form_3 = specific_weight/(concent_solid/100 + (1-concent_solid/100)*3)
-	$('.result.density').html(form_3.toFixed(2))
+	var form_3 = specific_weight/ ( concent_solid/100 + (1-concent_solid/100)*specific_weight )
+	$('.result.density').html(form_3.toFixed(3))
 
-	var form_4 = ((form_3/1000 - 1)/(specific_weight-1))*100
-	$('.result.vol_concent').html(form_4.toFixed(2))
+	var form_4 = ( (form_3 - 1) / (specific_weight-1) )*100
+	$('.result.vol_concent').html(form_4.toFixed(1)+'%')
 }
 
 function set_result_water_pipe(){
@@ -76,10 +76,10 @@ function set_result_water_pipe(){
 	var pipe_roughness  = parseInt($('.value_4').val())
 
 	var form_1 = (pipe_diameter - 2*(pipe_thickness))
-	$('.inside_diamter').html(form_1)
+	$('.inside_diamter').html(parseInt(form_1))
 
 	var form_2 = (Math.PI/4)*Math.pow((form_1/1000),2)
-	$('.flow_velocity').html(form_2.toFixed(6))
+	$('.flow_velocity').html(parseInt(form_2))
 
 	var form_3 = (0.33125/Math.pow(Math.log((form_4/(3.7*form_1)) + 5.74/(Math.pow(pipe_roughness,0.9)))),2)
 	$('.friction_factor').html(form_3)
@@ -109,9 +109,11 @@ function init_slider(max){
 }
 
 function set_items(){
-	$('.value_1').val($('#slider-1').val())
-	$('.value_2').val($('#slider-2').val())
-	$('.value_3').val($('#slider-3').val())
-	$('.value_4').val($('#slider-4').val())
+	for(i=1; i<=4; i++){	
+		if($('#slider-'+i).length>0){
+			$('.value_'+i).val($('#slider-'+i).val())
+		}
+	}
+
 }
 
