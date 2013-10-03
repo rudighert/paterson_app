@@ -110,7 +110,6 @@ h2{
   .item{
     color: gray;
     font-weight: light;
-    text-transform: uppercase;
   }
   .scroll_div{
     height: 2px;
@@ -120,23 +119,29 @@ h2{
     width: 80%;
     border: 1px solid gray;
   }
-  .unit{
-    color: gray;
-    font-size: 10px;
-    font-weight: lighter;
-    &:after{content:']';}
-    &:before{content:'[';}
+}
+
+.unit{
+  color: gray;
+  font-size: 10px;
+  font-weight: lighter;
+  &:after{content:']';}
+  &:before{content:'[';}
+  &.bold{
+    font-weight: bold;
+    font-size: 8px;
   }
 }
 
 .resuslts{
   width: 100%;
   font-size: 14px;
-  td{width: 50%; height: 70px;}
+  td{width: 50%; height: 60px;vertical-align: top;}
   .result{
     font-size: 20px;
     font-weight: bold;
   }
+
 }
 
 .sieves_mesh{

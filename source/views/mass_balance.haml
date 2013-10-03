@@ -1,23 +1,20 @@
-%h2.left
-	Select Values
-
 .area_value
-	.item Solids Tonnage:
+	.item Solids tonnage:
 	.info_left
-		%input.value_1.value_item{value: '100000'} 
+		%input.value_1.value_item{value: "100,000"} 
 		.unit Tonnes / day
 
 
 .area_value
-	.item Conc. of Solids:
+	.item Conc. of solids:
 	%input{type:"range", name:"slider-2", id: "slider-2", value: "60", min:"1", max:"85"}
 	.info_left
 		%input.value_2.value_item{value: '60'} 
-		.unit %
+		.unit % by mass
 
 
 .area_value
-	.item Solids Spec Weight:
+	.item Solids spec. weight:
 	.info_left
 		%input.value_3.value_item{value: '2.65'} 
 
@@ -25,15 +22,19 @@
 	%tr
 		%td
 			Slurry Flow Rate:
-			.result.slurry_rate 4350
+			.result.slurry_rate 4,350
+			%span.unit.bold m3/h
 		%td
 			Water Flow Rate
-			.result.water_rate 2777
+			.result.water_rate 2,777
+			%span.unit.bold m3/h
 	%tr
 		%td
 			Slurry Density
 			.result.density 1.596
+			%span.unit.bold kg/m3
 		%td
 			Volum. Concentration
 			.result.vol_concent 36.1%
+
 

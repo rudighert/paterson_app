@@ -1,54 +1,50 @@
-%h2.left
-	Select Values
-
 .area_value
 	.item Flow Rate:
-	%input{type:"range", name:"slider-1", id: "slider-1", value: "100000", min:"0", max:"500000"}
 	.info_left
-		%input.value_1.value_item{value: '100000'} 
+		%input.value_1.value_item{value: '2777'} 
 		.unit m3 / h
 
 
 .area_value
 	.item Pipe Diameter(out.):
-	%input{type:"range", name:"slider-2", id: "slider-2", value: "55", min:"1", max:"85"}
+	%input{type:"range", name:"slider-2", id: "slider-2", value: "508", min:"1", max:"3000"}
 	.info_left
-		%input.value_2.value_item{value: '55'} 
+		%input.value_2.value_item{value: '508'} 
 		.unit mm
 
 
 .area_value
 	.item Pipe wall Thickness(tot.):
-	%input{type:"range", name:"slider-3", id: "slider-3", value: "5.5", min:"0.5", max:"8.5"}
 	.info_left
-		%input.value_3.value_item{value: '5.5'} 
+		%input.value_3.value_item{value: '10'} 
 		.unit mm
 
 .area_value
 	.item Pipe wall Roughness(tot.):
-	%input{type:"range", name:"slider-4", id: "slider-4", value: "5.5", min:"0.5", max:"8.5"}
 	.info_left
-		%input.value_3.value_item{value: '5.5'} 
+		%input.value_4.value_item{value: '50'} 
 		.unit microns
 
 %table.resuslts
 	%tr
 		%td
 			Pipe Inside Diameter:
-			.result.inside_diamter 4242.42
+			.result.inside_diamter 488
+			.unit mm
 		%td
 			Flow Velocity
-			.result.flow_velocity 3409.09
+			.result.flow_velocity 383.27
+			.unit m/s
 	%tr
 		%td
 			Friction Factor
-			.result.friction_factor 2.63
+			.result.friction_factor 0.0043
 		%td
-			Water Unitary Head Loss
-			.result.head_loss -24.93
+			Water Unit. Head Loss
+			.result.head_loss 0.2629
 
 	%tr
 		%td
 			Reynolds Number
-			.result.reynolds_number 2.63
+			.result.reynolds_number 1.8704e+8
 	
