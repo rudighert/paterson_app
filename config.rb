@@ -22,6 +22,8 @@ page "/views/mass_balance.html", :layout => false
 page "/views/sieve_mesh.html", :layout => false
 page "/views/water_pipe.html", :layout => false
 page "/views/yield_stress.html", :layout => false
+
+page "/views/others/disclaimer.html", :layout => false
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout

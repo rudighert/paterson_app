@@ -13,6 +13,9 @@ $(document).ready(function(){
 			case 'back':
 				empty_app()
 				break;
+			case 'disclaimer':
+				show_widows(action)
+				break;
 		}
 	})
 
@@ -20,6 +23,7 @@ $(document).ready(function(){
 	function() {
 
 	});
+
 })
 
 function set_action_show(path, title){
@@ -233,4 +237,10 @@ function roundToPrecision(value, precision) {
     var multiplier = Math.pow(10, precision);
     return Math.round(value * multiplier) / multiplier;
 }
+
+function show_widows(){
+	alert('disclaimer')
+}
+
+
 
