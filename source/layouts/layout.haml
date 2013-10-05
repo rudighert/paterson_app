@@ -20,28 +20,41 @@
         %ul
           %li{data: {action: "back"}} Back
           %li{data: {action: "disclaimer"}} Discaimer
-          %li{data: {action: "back"}} Help
-          %li{data: {action: "back"}} Contact Us
+          %li{data: {action: "contact"}} Contact Us
       .insert_action
         Hola
     %header
       =image_tag 'logo.png', width: 300
-      .subtitle_nav Basic Tool
+      .subtitle_nav Basic Tools
 
     .button_area
       %table
         %tr
           %td
-            %button.buttton_principal{data: {path: asset_url('views/mass_balance'), title: "Mass Balance & Density"}} 
+            %button.buttton_principal{data: {selector: '#mass_balance', title: "Mass Balance & Density"}} 
               Mass Balance
           %td
-            %button.buttton_principal{data: {path: asset_url('views/water_pipe'), title: "Water Pipe Friction Loss"}} 
+            %button.buttton_principal{data: {selector: '#water_pipe', title: "Water Pipe Friction Loss"}} 
               Water Pipe Friction Loss
         %tr
           %td
-            %button.buttton_principal{data: {path: asset_url('views/yield_stress'), title: "Yield Stress Estimate"}} 
+            %button.buttton_principal{data: {selector: '#yield_stress', title: "Yield Stress Estimate"}} 
               Yield Stress Estimate
           %td
-            %button.buttton_principal{data: {path: asset_url('views/sieve_mesh'), title: "Sieves Mesh Sizes"}} 
-              Sieve Mesh Sizes (table)
+            %button.buttton_principal{data: {selector: '#sieve_mesh', title: "Sieves Mesh Sizes"}} 
+              Sieve Mesh Sizes
+
+    .all_views
+      #mass_balance
+        =render(:haml, 'views/mass_balance')
+      #water_pipe
+        =render(:haml, 'views/water_pipe')
+      #yield_stress
+        =render(:haml, 'views/yield_stress')
+      #sieve_mesh
+        =render(:haml, 'views/sieve_mesh')
+      #disclaimer
+        =render(:haml, 'views/others/disclaimer')
+      #contact
+        =render(:haml, 'views/others/contact')
       

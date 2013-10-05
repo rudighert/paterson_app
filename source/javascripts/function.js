@@ -2,9 +2,9 @@ var global_flow_rate = 2777;
 
 $(document).ready(function(){
 	$('.button_area').on('click', 'button',function(){
-		var path = $(this).data('path')
+		var selector = $(this).data('selector')
 		var title = $(this).data('title')
-		set_action_show(path, title)
+		show_action(selector, title)
 	})
 	
 	$('.bottom_nav').on('click', 'li',function(){
@@ -14,7 +14,10 @@ $(document).ready(function(){
 				empty_app()
 				break;
 			case 'disclaimer':
-				show_widows(action)
+				show_action('#disclaimer', 'Disclaimer')
+				break;
+			case 'contact':
+				show_action('#contact', 'Contact Us')
 				break;
 		}
 	})
@@ -26,15 +29,10 @@ $(document).ready(function(){
 
 })
 
-function set_action_show(path, title){
-	$.get(path+'.html', function(data) {
-		$('.insert_action').html(data)
-		$('.subtitle_nav').html(title)
-		$('.subtitle_nav').addClass('active')
-		$('.show_actions').addClass('active')
-		$('.bottom_nav').addClass('active')
+function set_action_show(selector){
+	
 		init_slider(4)
-		if(path=='/views/mass_balance'){
+		if(selector=='#mass_balance'){
 			$('.area_value').bind('change','.value_item',function(){set_result_mass_balance()})
 			$('.area_value').on('keyup','.value_item',function(e){
 				if(!(e.keyCode==37 || e.keyCode==38 || e.keyCode==39 || e.keyCode==40)){
@@ -45,7 +43,7 @@ function set_action_show(path, title){
 		}
 
 
-		if(path=='/views/water_pipe'){
+		if(selector=='#water_pipe'){
 			$('.value_1').val(addThousandsSeparator(global_flow_rate))
 			set_result_water_pipe()
 			$('.area_value').bind('change','.value_item',function(){set_result_water_pipe()})
@@ -60,7 +58,7 @@ function set_action_show(path, title){
 
 		
 
-		if(path=='/views/yield_stress'){
+		if(selector=='#yield_stress'){
 			$('.area_value').bind('change','value_item',function(){set_result_yield_stress()})
 			$('.area_value').on('keyup','.value_item',function(e){
 				if(!(e.keyCode==37 || e.keyCode==38 || e.keyCode==39 || e.keyCode==40)){
@@ -70,10 +68,7 @@ function set_action_show(path, title){
 			})
 		}
 		
-	})
-	  .fail(function() {
-	    alert( "error" );
-	  })
+	
 
 }
 
@@ -122,14 +117,17 @@ function set_result_water_pipe(){
 	$('.flow_velocity').html(addThousandsSeparator(form_2.toFixed(2)))
 
 	
-	var form_5 = (form_2*(form_1/1000)/Math.pow(10,-6))
+	var form_5 = (form_2*(form_1)/Math.pow(10,-6))
 	$('.reynolds_number').html(form_5.toExponential(4))
-	var Re = form_5
+	var Re = 588500
 
-	var A= pipe_roughness/3.7*parseInt(form_1)
+	var A= (pipe_roughness/100000)/3.7*parseFloat(form_1)/1000
 	var B= 5.74/Math.pow(Re, 0.9)
 	var C= Math.log(A+B)
+
+
 	var form_3 =0.33125/Math.pow(C,2)
+
 	$('.friction_factor').html(form_3.toFixed(4))
 
 	var form_4 = ((2*form_3)/(9.81))*(Math.pow(form_2,2)/form_1)
@@ -238,8 +236,15 @@ function roundToPrecision(value, precision) {
     return Math.round(value * multiplier) / multiplier;
 }
 
-function show_widows(){
-	alert('disclaimer')
+
+function show_action(selector, title){
+	var data =$(selector).html()
+	$('.insert_action').html(data)
+	$('.subtitle_nav').html(title)
+	$('.subtitle_nav').addClass('active')
+	$('.show_actions').addClass('active')
+	$('.bottom_nav').addClass('active')
+	set_action_show(selector)
 }
 
 
