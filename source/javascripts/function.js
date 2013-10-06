@@ -26,6 +26,8 @@ $(document).ready(function(){
 	function() {
 
 	});
+	
+	
 
 })
 
@@ -246,6 +248,27 @@ function show_action(selector, title){
 	$('.bottom_nav').addClass('active')
 	set_action_show(selector)
 }
+
+var actual_background=1
+var max_back=3;
+window.onload = function() {
+    setInterval(change_backgrounds,5000); //Then set it to run again after five minutes
+}
+function change_backgrounds(){
+
+	var next_back = actual_background+1;
+	next_back = next_back > max_back ? 1 : next_back
+	$('body').removeClass('back_'+actual_background).addClass('back_'+next_back)
+	$('.backgrounds.active').css({'opacity' : 1})
+	$('.backgrounds.active').animate({'opacity': '0'}, 2000, function(){		
+		$(this).removeClass('active')
+		$('.backgrounds.back_'+next_back).addClass('active')
+		actual_background ++;
+		actual_background = actual_background >max_back ? 1 : actual_background
+	})
+ }
+
+
 
 
 
