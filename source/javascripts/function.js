@@ -115,8 +115,8 @@ function set_result_water_pipe(){
 	var form_1 = (pipe_diameter - 2*(pipe_thickness))
 	$('.inside_diamter').html(addThousandsSeparator(parseInt(form_1)))
 
-	var form_2 = (Math.PI/4)*form_1
-	$('.flow_velocity').html(addThousandsSeparator(form_2.toFixed(2)))
+	var form_2 = Math.pow(form_1,2)*(Math.PI/4)
+	$('.flow_velocity').html(form_2)
 
 	
 	var form_5 = (form_2*(form_1)/Math.pow(10,-6))
