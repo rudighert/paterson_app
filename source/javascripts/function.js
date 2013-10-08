@@ -1,4 +1,4 @@
-var global_flow_rate = 2777;
+var global_flow_rate = 500;
 
 $(document).ready(function(){
 	$('.button_area').on('click', 'button',function(){
@@ -6,7 +6,7 @@ $(document).ready(function(){
 		var title = $(this).data('title')
 		show_action(selector, title)
 	})
-	
+
 	$('.bottom_nav').on('click', 'li',function(){
 		var action = $(this).data('action')
 		switch(action){
@@ -22,12 +22,12 @@ $(document).ready(function(){
 		}
 	})
 
-	$(".show_actions").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
+	$(".show_actions").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',
 	function() {
 
 	});
 
-	
+
 
 })
 
@@ -36,15 +36,15 @@ function keyAcept(keyCode){
 }
 
 function set_action_show(selector){
-	
+
 		init_slider(4)
 		if(selector=='#mass_balance'){
 			$('.area_value').bind('change','.value_item',function(){set_result_mass_balance()})
 			$('.area_value').on('keyup','.value_item',function(e){
 				if(!keyAcept(e.keyCode)){
-					auto_set_number($(this), set_result_mass_balance)	
+					auto_set_number($(this), set_result_mass_balance)
 				}
-				
+
 			})
 		}
 
@@ -55,26 +55,26 @@ function set_action_show(selector){
 			$('.area_value').bind('change','.value_item',function(){set_result_water_pipe()})
 			$('.area_value').on('keyup','.value_item',function(e){
 				if(!(e.keyCode==37 || e.keyCode==38 || e.keyCode==39 || e.keyCode==40)){
-					auto_set_number($(this), set_result_water_pipe)	
+					auto_set_number($(this), set_result_water_pipe)
 				}
-				
+
 			})
 
 		}
 
-		
+
 
 		if(selector=='#yield_stress'){
 			$('.area_value').bind('change','.value_item',function(){set_result_yield_stress()})
 			$('.area_value').on('keyup','.value_item',function(e){
 				if(!(e.keyCode==37 || e.keyCode==38 || e.keyCode==39 || e.keyCode==40)){
-					auto_set_number($(this), set_result_yield_stress)	
+					auto_set_number($(this), set_result_yield_stress)
 				}
-				
+
 			})
 		}
-		
-	
+
+
 
 }
 
@@ -111,23 +111,24 @@ function set_result_mass_balance(){
 
 // ================PANTALLA 2==========================
 function set_result_water_pipe(){
-	var flow_rate       = parseFloat($('.value_1').val())
+	var flow_rate       = get_values_item($('.value_1').val())
 	var pipe_diameter   = get_values_item($('.value_2').val())
-	var pipe_thickness  = parseFloat($('.value_3').val())
-	var pipe_roughness  = parseFloat($('.value_4').val())
+	var pipe_thickness  = get_values_item($('.value_3').val())
+	var pipe_roughness  = get_values_item($('.value_4').val())
 
-	var form_1 = (pipe_diameter - 2*(pipe_thickness))
-	$('.inside_diamter').html(addThousandsSeparator(parseInt(form_1)))
+	var diameter_int = (pipe_diameter - 2*(pipe_thickness))
+	$('.inside_diamter').html(addThousandsSeparator(parseInt(diameter_int)))
 
-	var form_2 = Math.pow(form_1/1000,2)*(Math.PI/4)
-	$('.flow_velocity').html(form_2.toFixed(4))
-	form_2 =1.9650
-	
-	var form_5 = (form_2*(form_1)/Math.pow(10,-6))
+	var area = Math.pow((diameter_int/1000),2)*(Math.PI/4)
+	var velocity = flow_rate/3600/area
+  $('.flow_velocity').html(velocity.toFixed(3))
+
+
+	var form_5 = (velocity*(diameter_int)/Math.pow(10,-6))
 	$('.reynolds_number').html(form_5.toExponential(4))
 	var Re = 588500
 
-	var A= (pipe_roughness/100000)/3.7*parseFloat(form_1)/1000
+	var A= (pipe_roughness/100000)/3.7*parseFloat(diameter_int)/1000
 	var B= 5.74/Math.pow(Re, 0.9)
 	var C= Math.log(A+B)
 
@@ -136,10 +137,10 @@ function set_result_water_pipe(){
 
 	$('.friction_factor').html(form_3.toFixed(4))
 
-	var form_4 = ((2*form_3)/(9.81))*(Math.pow(form_2,2)/(form_1/1000))
+	var form_4 = ((2*form_3)/(9.81))*(Math.pow(velocity,2)/(diameter_int/1000))
 	$('.head_loss').html(form_4.toFixed(4))
 
-	var form_5 = (form_2*(form_1/1000)/Math.pow(10,-6))
+	var form_5 = (velocity*(diameter_int/1000)/Math.pow(10,-6))
 	$('.reynolds_number').html(form_5.toExponential(4))
 
 }
@@ -150,26 +151,26 @@ function set_result_water_pipe(){
 // ================PANTALLA 3==========================
 function set_result_yield_stress(){
 	console.log('entro')
-	var height  = parseFloat($('.value_1').val())
-	var slump   = parseFloat($('.value_2').val())
+	var height  = get_values_item($('.value_1').val())
+	var slump   = get_values_item($('.value_2').val())
 	var density = get_values_item($('.value_3').val())
 
 	$('#slider-2').attr('max', parseInt(height)-1)
 
 
-	var form_1 = calculateYieldStress(density, height, slump) 
+	var form_1 = calculateYieldStress(density, height, slump)
 	$('.result.yield_stress').html(addThousandsSeparator(form_1))
 
 }
 
 function init_slider(max){
 	for(i=1; i<=max; i++){
-		$( "#slider-"+i ).bind( "change", function() {set_items()});	
+		$( "#slider-"+i ).bind( "change", function() {set_items()});
 	}
 }
 
 function set_items(){
-	for(i=1; i<=4; i++){	
+	for(i=1; i<=4; i++){
 		if($('#slider-'+i).length>0){
 			$('.value_'+i).val(addThousandsSeparator($('#slider-'+i).val()))
 		}
@@ -200,11 +201,11 @@ function auto_set_number(input,func){
 		input.val(addThousandsSeparator(number))
 		func()
 	}
-	
+
 }
 
 function calculateYieldStress(density, height, slump) {
- 
+
 
     if (isNaN(density) || isNaN(height) || isNaN(slump))
         return;
@@ -221,7 +222,7 @@ function calculateYieldStress(density, height, slump) {
     var upper = 1000;
     var count = 0;
     var ty = 10000;
-    
+
     while (Math.abs(upper - lower) >= 0.01 && count < 1000) {
         count++;
         ty = (lower + upper) / 2;
@@ -265,7 +266,7 @@ function change_backgrounds(){
 	next_back = next_back > max_back ? 1 : next_back
 	$('body').removeClass('back_'+actual_background).addClass('back_'+next_back)
 	$('.backgrounds.active').css({'opacity' : 1})
-	$('.backgrounds.active').animate({'opacity': '0'}, 2000, function(){		
+	$('.backgrounds.active').animate({'opacity': '0'}, 2000, function(){
 		$(this).removeClass('active')
 		$('.backgrounds.back_'+next_back).addClass('active')
 		actual_background ++;

@@ -90,7 +90,7 @@ h2{
   &.active{
     height: 100%;
     bottom: 0px;
-    @include transition(bottom, 0.3s); 
+    @include transition(bottom, 0.3s);
   }
   .insert_action{
     margin-top: 68px;
@@ -113,7 +113,7 @@ h2{
     &.active{
       display: block;
     }
-    
+
     ul{
       width:      100%;
       margin: 0;
@@ -144,7 +144,7 @@ h2{
   position: relative;
   box-sizing: border-box;
   min-height: 35px;
-  margin: 20px 0;
+  margin: 10px 0;
   .info_left{
     position: absolute;
     top: 0;
@@ -198,7 +198,7 @@ h2{
   border: 1px solid #34495e;
   thead{
     font-size: 12px;
-    background-color: #34495e;
+    background-color: #2ecc71;
     color: white;
   }
   .one,.two{
@@ -210,8 +210,8 @@ h2{
   tbody{
     tr{
       &.light{
-        background-color: #80C5F3!important;
-        color: white;
+        background-color: #ACFCCE!important;
+        color: black;
       }
       &:nth-child(even){
         background-color: #ecf0f1;
@@ -251,23 +251,27 @@ h2{
 
 
 input[type="range"]{
-  width:80%; 
+  width:80%;
   height:40px;
 
 }
-input::-webkit-slider-thumb {  
-    -webkit-appearance: none;   
-    /* position the button on top of everything */  
-    z-index: 100;  
-    position: relative;  
-    width: 40px;  
-    height: 40px;  
-    -webkit-border-radius: 10px;  
-    border-radius: 10px;  
-    /* arrow and button gradient */  
+input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* position the button on top of everything */
+    z-index: 100;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* arrow and button gradient */
     background-image: asset-url('slider-thumb.png',image);
-    background-repeat: no-repeat;  
-    background-position: 50%;  
-}  
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.no_margin{
+  margin: 0;
+}
 
 

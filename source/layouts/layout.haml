@@ -7,13 +7,13 @@
     %meta{name: "viewport", content: "user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"}
     %meta{name: "apple-mobile-web-app-capable", content:"yes"}
     %meta{name: "apple-mobile-web-app-status-bar-style", content: "black"}
-    
+
     <!-- Use title if it's in the page YAML frontmatter -->
     %title Paterson & Cooke
 
     = stylesheet_link_tag "normalize", "all", "header", "principal"
     = javascript_include_tag  "all"
-   
+
   %body{class: 'back_1'}
     .backgrounds.back_1.active
     .backgrounds.back_2
@@ -26,7 +26,7 @@
       .bottom_nav
         %ul
           %li{data: {action: "back"}} Back
-          %li{data: {action: "disclaimer"}} Discaimer
+          %li{data: {action: "disclaimer"}} Disclaimer
           %li{data: {action: "contact"}} Contact Us
       .insert_action
         Hola
@@ -39,17 +39,17 @@
       %table
         %tr
           %td
-            %button.buttton_principal{data: {selector: '#mass_balance', title: "Mass Balance & Density"}} 
+            %button.buttton_principal{data: {selector: '#mass_balance', title: "Mass Balance & Density"}}
               Mass Balance
           %td
-            %button.buttton_principal{data: {selector: '#water_pipe', title: "Water Pipe Friction Loss"}} 
+            %button.buttton_principal{data: {selector: '#water_pipe', title: "Water Pipe Friction Loss"}}
               Water Pipe Friction Loss
         %tr
           %td
-            %button.buttton_principal{data: {selector: '#yield_stress', title: "Yield Stress Estimate"}} 
+            %button.buttton_principal{data: {selector: '#yield_stress', title: "Yield Stress Estimate"}}
               Yield Stress Estimate
           %td
-            %button.buttton_principal{data: {selector: '#sieve_mesh', title: "Sieves Mesh Sizes"}} 
+            %button.buttton_principal{data: {selector: '#sieve_mesh', title: "Sieve Mesh Sizes"}}
               Sieve Mesh Sizes
 
     .all_views
@@ -65,4 +65,3 @@
         =render(:haml, 'views/others/disclaimer')
       #contact
         =render(:haml, 'views/others/contact')
-      
