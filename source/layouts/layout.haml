@@ -13,11 +13,15 @@
 
     = stylesheet_link_tag "normalize", "all", "header", "principal"
     = javascript_include_tag  "all"
-  
+   
   %body{class: 'back_1'}
     .backgrounds.back_1.active
     .backgrounds.back_2
     .backgrounds.back_3
+    .backgrounds.back_4
+    .backgrounds.back_5
+    .backgrounds.back_6
+    .backgrounds.back_7
     .show_actions
       .bottom_nav
         %ul
@@ -29,6 +33,7 @@
     %header
       =image_tag 'logo.png', width: 300
       .subtitle_nav Basic Tools
+      / .noUiSlider
 
     .button_area
       %table

@@ -1,5 +1,7 @@
 @charset "utf-8";
 @import 'mixin';
+@import 'jquery.nouislider.min';
+
 html, body {
     margin: 0;
     width: 100%;
@@ -26,11 +28,27 @@ body {
     background-size: cover;
   }
   &.back_2, .back_2{
-    background: #e74c3c center center no-repeat;
+    background: asset-url('fondo2.JPG',image) center center no-repeat;
     background-size: cover;
   }
   &.back_3, .back_3{
-    background: #f39c12;
+    background: asset-url('fondo3.jpg',image) center center no-repeat;
+    background-size: cover;
+  }
+  &.back_4, .back_4{
+    background: asset-url('fondo4.jpg',image) center center no-repeat;
+    background-size: cover;
+  }
+  &.back_5, .back_5{
+    background: asset-url('fondo5.jpg',image) center center no-repeat;
+    background-size: cover;
+  }
+  &.back_6, .back_6{
+    background: asset-url('fondo6.jpg',image) center center no-repeat;
+    background-size: cover;
+  }
+  &.back_7, .back_7{
+    background: asset-url('fondo7.jpg',image) center center no-repeat;
     background-size: cover;
   }
 }
@@ -184,7 +202,7 @@ h2{
   tbody{
     tr{
       &.light{
-        background-color: #2980b9!important;
+        background-color: #80C5F3!important;
         color: white;
       }
       &:nth-child(even){
@@ -220,5 +238,27 @@ h2{
   }
 }
 
+
+
+
+input[type="range"]{
+  width:80%; 
+  height:40px;
+
+}
+input::-webkit-slider-thumb {  
+    -webkit-appearance: none;   
+    /* position the button on top of everything */  
+    z-index: 100;  
+    position: relative;  
+    width: 40px;  
+    height: 40px;  
+    -webkit-border-radius: 10px;  
+    border-radius: 10px;  
+    /* arrow and button gradient */  
+    background-image: asset-url('slider-thumb.png',image);
+    background-repeat: no-repeat;  
+    background-position: 50%;  
+}  
 
 

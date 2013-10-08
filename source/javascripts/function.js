@@ -26,10 +26,14 @@ $(document).ready(function(){
 	function() {
 
 	});
-	
+
 	
 
 })
+
+function keyAcept(keyCode){
+	return (keyCode==37 || keyCode==38 || keyCode==39 || keyCode==40 || keyCode==190)
+}
 
 function set_action_show(selector){
 	
@@ -37,7 +41,7 @@ function set_action_show(selector){
 		if(selector=='#mass_balance'){
 			$('.area_value').bind('change','.value_item',function(){set_result_mass_balance()})
 			$('.area_value').on('keyup','.value_item',function(e){
-				if(!(e.keyCode==37 || e.keyCode==38 || e.keyCode==39 || e.keyCode==40)){
+				if(!keyAcept(e.keyCode)){
 					auto_set_number($(this), set_result_mass_balance)	
 				}
 				
@@ -61,7 +65,7 @@ function set_action_show(selector){
 		
 
 		if(selector=='#yield_stress'){
-			$('.area_value').bind('change','value_item',function(){set_result_yield_stress()})
+			$('.area_value').bind('change','.value_item',function(){set_result_yield_stress()})
 			$('.area_value').on('keyup','.value_item',function(e){
 				if(!(e.keyCode==37 || e.keyCode==38 || e.keyCode==39 || e.keyCode==40)){
 					auto_set_number($(this), set_result_yield_stress)	
@@ -76,7 +80,7 @@ function set_action_show(selector){
 
 function empty_app(){
 	$('.insert_action').html('')
-	$('.subtitle_nav').html('Basic Tool')
+	$('.subtitle_nav').html('Basic Tools')
 	$('.subtitle_nav').removeClass('active')
 	$('.show_actions').removeClass('active')
 	$('.bottom_nav').removeClass('active')
@@ -115,9 +119,9 @@ function set_result_water_pipe(){
 	var form_1 = (pipe_diameter - 2*(pipe_thickness))
 	$('.inside_diamter').html(addThousandsSeparator(parseInt(form_1)))
 
-	var form_2 = Math.pow(form_1,2)*(Math.PI/4)
-	$('.flow_velocity').html(form_2)
-
+	var form_2 = Math.pow(form_1/1000,2)*(Math.PI/4)
+	$('.flow_velocity').html(form_2.toFixed(4))
+	form_2 =1.9650
 	
 	var form_5 = (form_2*(form_1)/Math.pow(10,-6))
 	$('.reynolds_number').html(form_5.toExponential(4))
@@ -132,29 +136,29 @@ function set_result_water_pipe(){
 
 	$('.friction_factor').html(form_3.toFixed(4))
 
-	var form_4 = ((2*form_3)/(9.81))*(Math.pow(form_2,2)/form_1)
+	var form_4 = ((2*form_3)/(9.81))*(Math.pow(form_2,2)/(form_1/1000))
 	$('.head_loss').html(form_4.toFixed(4))
 
 	var form_5 = (form_2*(form_1/1000)/Math.pow(10,-6))
 	$('.reynolds_number').html(form_5.toExponential(4))
-	Re = form_5
+
 }
 
 
 
 
-
-
+// ================PANTALLA 3==========================
 function set_result_yield_stress(){
+	console.log('entro')
 	var height  = parseFloat($('.value_1').val())
 	var slump   = parseFloat($('.value_2').val())
-	var density = parseFloat($('.value_3').val())
+	var density = get_values_item($('.value_3').val())
 
 	$('#slider-2').attr('max', parseInt(height)-1)
 
 
 	var form_1 = calculateYieldStress(density, height, slump) 
-	$('.result.yield_stress').html(addThousandsSeparator(form_1.toFixed(2)))
+	$('.result.yield_stress').html(addThousandsSeparator(form_1))
 
 }
 
@@ -173,7 +177,7 @@ function set_items(){
 }
 
 function get_values_item(number){
-	return parseInt(number.replace(",",""));
+	return parseFloat(number.replace(",",""));
 }
 
 function addThousandsSeparator(input) {
@@ -190,6 +194,7 @@ function addThousandsSeparator(input) {
 
 function auto_set_number(input,func){
 	var number = get_values_item(input.val())
+	console.log(number)
 	number = number || 0
 	if(number!= 0){
 		input.val(addThousandsSeparator(number))
@@ -250,7 +255,7 @@ function show_action(selector, title){
 }
 
 var actual_background=1
-var max_back=3;
+var max_back=7;
 window.onload = function() {
     setInterval(change_backgrounds,5000); //Then set it to run again after five minutes
 }
