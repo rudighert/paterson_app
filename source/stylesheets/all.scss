@@ -57,6 +57,10 @@ body {
     background: asset-url('fondo7.jpg',image) center center no-repeat;
     background-size: cover;
   }
+  &.back_8, .back_8{
+    background: asset-url('fondo8.jpg',image) center center no-repeat;
+    background-size: cover;
+  }
 }
 h1,h2,h3,h4,h5,h6{
   margin: 0;
