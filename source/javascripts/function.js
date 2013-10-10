@@ -256,7 +256,7 @@ function show_action(selector, title){
 }
 
 var actual_background=1
-var max_back=7;
+var max_back=8;
 window.onload = function() {
     setInterval(change_backgrounds,5000); //Then set it to run again after five minutes
 }
