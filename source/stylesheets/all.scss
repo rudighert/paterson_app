@@ -12,6 +12,10 @@ html, body {
     margin: 0;
     width: 100%;
     min-height: 100%;
+    text-transform: capitalize;
+}
+.inline{
+  display: inline-block;
 }
 body {
   text-align: center;
@@ -177,6 +181,7 @@ h2{
   color: black;
   font-size: 14px;
   font-weight: lighter;
+  text-transform: none;
   &:after{content:']';}
   &:before{content:'[';}
   &.bold{
@@ -188,7 +193,7 @@ h2{
 .resuslts{
   width: 100%;
   font-size: 14px;
-  td{width: 50%; height: 60px;vertical-align: top;}
+  td{width: 50%; height: 50px;vertical-align: top;}
   .result{
     color: #2980b9;
     font-size: 20px;
@@ -256,7 +261,7 @@ h2{
 
 input[type="range"]{
   width:80%;
-  height:20px;
+  height:30px;
 
 }
 input::-webkit-slider-thumb {
@@ -264,8 +269,8 @@ input::-webkit-slider-thumb {
     /* position the button on top of everything */
     z-index: 100;
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
     /* arrow and button gradient */
@@ -318,7 +323,7 @@ input::-webkit-slider-thumb {
     border-radius:none;
     background-color: #ecf0f1;
     font-size: 16px;
-    height: 65px;
+    height: 50px;
     background: rgb(242,246,248); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 50%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,246,248,1)), color-stop(50%,rgba(216,225,231,1)), color-stop(51%,rgba(181,198,208,1)), color-stop(100%,rgba(224,239,249,1))); /* Chrome,Safari4+ */
@@ -334,7 +339,7 @@ input::-webkit-slider-thumb {
     td{
       text-align: center;
       width: 50%;
-      padding: 5px 15px;
+      padding: 2px 15px;
     }
   }
 }

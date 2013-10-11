@@ -6,7 +6,7 @@
 
 
 .area_value
-	.item Outside Pipe Diam::
+	.item Outside Pipe Diam:
 	%input{type:"range", name:"slider-2", id: "slider-2", value: "508", min:"1", max:"3000"}
 	.info_left
 		%input.value_2.value_item.scrolling{value: '320', data:{scroll: "#slider-2"}}
@@ -29,20 +29,23 @@
 	%tr
 		%td
 			Pipe Inside Diameter
-			.result.inside_diamter 488
-			.unit mm
+			.content_box_result
+				.result.inside_diamter.inline 488
+				%span.unit mm
 		%td
 			Flow Velocity
-			.result.flow_velocity 1.965
-			.unit m/s
+			.content_box_result
+				.result.flow_velocity.inline 1.965
+				%span.unit m/s
 	%tr
 		%td
 			Friction Factor
 			.result.friction_factor 0.0043
 		%td
-			Water Unit. Head Loss
-			.result.head_loss 0.2629
-			.unit m/m
+			Head Loss
+			.content_box_result
+				.result.head_loss.inline 0.2629
+				%span.unit m/m
 
 	%tr
 		%td
