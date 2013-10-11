@@ -22,10 +22,17 @@ $(document).ready(function(){
     }
   })
 
-  $(".show_actions").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',
-  function() {
+  $('body').on('click', 'header', function(){
+    show_action('#contact', "Contact Us")
+  })
 
-  });
+
+
+  $('body').on('keyup', '.scrolling',function(){
+    var selector = $(this).data('scroll')
+    var val = $(this).val()
+    $(selector).val(val)
+  })
 
 
 

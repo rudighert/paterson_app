@@ -30,7 +30,7 @@
           %li{data: {action: "disclaimer"}} Disclaimer
           %li{data: {action: "contact"}} Contact Us
       .insert_action
-        Hola
+
     %header
       =image_tag 'logo.png', width: 300
       .subtitle_nav Basic Tools
@@ -40,25 +40,27 @@
       %table
         %tr
           %td
-            %button.buttton_principal{data: {selector: '#mass_balance', title: "Mass Balance & Density"}}
+            %button.buttton_principal{data: {selector: '#mass_balance', title: "Mass Balance"}}
               Mass Balance
           %td
             %button.buttton_principal{data: {selector: '#water_pipe', title: "Water Pipe Friction Loss"}}
               Water Pipe Friction Loss
         %tr
           %td
-            %button.buttton_principal{data: {selector: '#yield_stress', title: "Yield Stress Estimate"}}
-              Yield Stress Estimate
+            %button.buttton_principal{data: {selector: '#yield_stress', title: "Slamp Yield Stress"}}
+              Slamp Yield Stress Estimate
           %td
             %button.buttton_principal{data: {selector: '#sieve_mesh', title: "Sieve Mesh Sizes"}}
               Sieve Mesh Sizes
         %tr
           %td
-            %button.buttton_principal{data: {selector: '#yield_stress', title: "Yield Stress Estimate"}}
-              disclaimer
+            %button.others_button{data: {selector: '#disclaimer', title: "Disclaimer"}}
+              .icon.disclaimers
+              %span Disclaimer
           %td
-            %button.buttton_principal{data: {selector: '#sieve_mesh', title: "Sieve Mesh Sizes"}}
-              contact us
+            %button.others_button{data: {selector: '#contact', title: "Contact"}}
+              .icon.contactus
+              %span Contact Us
 
     .all_views
       #mass_balance

@@ -9,7 +9,7 @@
 	.item Measured Slump Height
 	%input{type:"range", name:"slider-2", id: "slider-2", value: "50", min:"0", max:"99"}
 	.info_left
-		%input.value_2.value_item{value: '50'}
+		%input.value_2.value_item.scrolling{value: '50', data:{scroll: "#slider-2"}}
 		.unit mm
 
 
@@ -22,7 +22,7 @@
 %table.resuslts
 	%tr
 		%td
-			Yield Stress of the Slurry
+			Slump Yield Stress
 			.result.yield_stress 146.5
 			.unit Pa
 =image_tag 'yield_stress.png', width: 300

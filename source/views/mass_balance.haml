@@ -9,12 +9,12 @@
 	.item Conc. of solids:
 	%input{type:"range", name:"slider-2", id: "slider-2", value: "60", min:"0", max:"85", step: "0.5"}
 	.info_left
-		%input.value_2.value_item{value: '60'}
+		%input.value_2.value_item.scrolling{value: '60', data:{scroll: "#slider-2"}}
 		.unit % by mass
 
 
 .area_value
-	.item Solids spec. weight:
+	.item Solids spec. density:
 	.info_left
 		%input.value_3.value_item{value: '2.65'}
 
@@ -34,7 +34,7 @@
 			.result.density 1.596
 			%span.unit t/m3
 		%td
-			Volum. Concentration
+			Vol Concentration
 			.result.vol_concent 36.1%
 
 
