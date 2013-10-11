@@ -62,7 +62,7 @@ function set_action_show(selector){
       set_result_water_pipe()
       $('.area_value').bind('change','.value_item',function(){set_result_water_pipe()})
       $('.area_value').on('keyup','.value_item',function(e){
-        if(!(e.keyCode==37 || e.keyCode==38 || e.keyCode==39 || e.keyCode==40)){
+        if(!keyAcept(e.keyCode)){
           auto_set_number($(this), set_result_water_pipe)
         }
 
@@ -75,7 +75,7 @@ function set_action_show(selector){
     if(selector=='#yield_stress'){
       $('.area_value').bind('change','.value_item',function(){set_result_yield_stress()})
       $('.area_value').on('keyup','.value_item',function(e){
-        if(!(e.keyCode==37 || e.keyCode==38 || e.keyCode==39 || e.keyCode==40)){
+        if(!keyAcept(e.keyCode)){
           auto_set_number($(this), set_result_yield_stress)
         }
 
