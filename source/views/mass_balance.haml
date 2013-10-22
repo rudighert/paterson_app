@@ -24,20 +24,26 @@
 			Slurry Flow Rate
 			.content_box_result
 				.result.slurry_rate.inline 4,350
-				%span.unit m3/h
+				-unit = "<div class='to_up_indice'>m<div class='super_indice'>3</div></div>/h"
+				%span.unit= unit
 		%td
 			Water Flow Rate
 			.content_box_result
 				.result.water_rate.inline 2,777
-				%span.unit m3/h
+				-unit = "<div class='to_up_indice'>m<div class='super_indice'>3</div></div>/h"
+				%span.unit=unit
 	%tr
 		%td
 			Slurry Density
 			.content_box_result
 				.result.density.inline 1.596
-				%span.unit t/m3
+				-unit = "t/<div class='to_up_indice'>m<div class='super_indice'>3</div></div>"
+				%span.unit=unit
 		%td
 			Vol Concentration
 			.result.vol_concent 36.1%
+
+.notes *Water density 1.000 T/m3
+.notes *Tones: Metrics tones
 
 
