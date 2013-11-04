@@ -6,7 +6,10 @@
 
 
 .area_value
-	.item Conc. of solids:
+	.item
+		Conc.
+		%span.no_camel of
+		solids:
 	%input{type:"range", name:"slider-2", id: "slider-2", value: "60", min:"0", max:"85", step: "0.5"}
 	.info_left
 		%input.value_2.value_item.scrolling{value: '60', data:{scroll: "#slider-2"}}

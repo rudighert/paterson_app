@@ -373,6 +373,12 @@ input::-webkit-slider-thumb {
   font-size: 12px;
   padding-left: 20px;
   text-transform: none;
+  &.centered{
+    padding-left: 0;
+    text-align: center;
+    font-size: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 .to_up_indice{
@@ -385,4 +391,7 @@ input::-webkit-slider-thumb {
     bottom: 5px;
     right: 0px;
   }
+}
+.no_camel{
+  text-transform: none;
 }
