@@ -10,5 +10,6 @@
 # Ignore the build directory
 /build
 
+/.zip
 # Ignore Sass' cache
 /.sass-cache
